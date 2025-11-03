@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building project using Maven...'
+                sh 'mvn clean compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deployment stage simulated...'
+            }
+        }
+    }
+}
